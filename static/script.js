@@ -2,7 +2,7 @@ function assignTasks() {
     const members = JSON.parse(document.getElementById("members").value);
     const tasks = JSON.parse(document.getElementById("tasks").value);
 
-    fetch("http://127.0.0.1:5000/assign", {
+    fetch("/assign", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
