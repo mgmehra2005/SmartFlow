@@ -2,15 +2,39 @@
 <html>
 
 <head>
-    <title>SmartFlow Demo</title>
+    <title>SmartFlow</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='./resources/favicon.png')}}" type="image/x-icon">
 </head>
 
 <body>
 
-    <h1>SmartFlow – Intelligent Task Assignment</h1>
+    <header>
+        <nav>
+            <div>
+                <img src="{{ url_for('static', filename='./resources/logo.png') }}" alt="Smart flow logo" class="header-logo">
+            </div>
+            <div>
+                <button id="github-button" onclick="window.location.href='http://github.com/mgmehra2005/smartFlow'">GITHUB REPO</button>
+            </div>
+        </nav>
+    </header>
 
-    <section>
+    <main>
+        <section id="left-section" class="main-section">
+
+        </section>
+        <section id="center-section" class="main-section">
+
+        </section>
+        <section id="right-section" class="main-section">
+
+        </section>
+    </main>
+
+    <!-- <h1>SmartFlow – Intelligent Task Assignment</h1> -->
+
+    <!-- <section>
         <h2>Team Members</h2>
         <textarea id="members" rows="6">
             [
@@ -37,7 +61,7 @@
     <section>
         <h2>Assignments</h2>
         <pre id="result"></pre>
-    </section>
+    </section> -->
 
     <script src="{{ url_for('static', filename='./script.js') }}"></script>
 </body>

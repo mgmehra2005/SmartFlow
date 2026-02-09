@@ -1,9 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 40px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; */
 }
 
-section {
+/* section {
     margin-bottom: 20px;
 }
 
@@ -16,4 +19,58 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+} */
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+    nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        #github-button {
+            background-color: transparent;
+            padding: 10px 20px;
+            border: 2px solid black;
+            color: black;
+            font-size: 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    width: 200px;
+
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh; 
+
+    .main-section {
+        border: 1px solid red;
+        height: 100vh;
+    }
+
+    #left-section {
+        flex: 1;
+    }
+
+    #right-section {
+        flex: 1;
+    }
+
+    #center-section {
+        flex: 2;
+    }
 }
