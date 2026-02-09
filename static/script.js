@@ -116,7 +116,9 @@ document.addEventListener("click", (e) => {
 
 
 function assignTasks() {
-    console.log("Assigning tasks");
+    const members = JSON.parse(document.getElementById("members").value);
+    const tasks = JSON.parse(document.getElementById("tasks").value);
+
     fetch("/assign", {
         method: "POST",
         headers: {
