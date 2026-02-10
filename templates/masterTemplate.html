@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SmartFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='./resources/favicon.png')}}" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div onclick=window.location.href="{{url_for('home')}}">
+                <img src="{{ url_for('static', filename='./resources/logo.png') }}" alt="Smart flow logo" class="header-logo">
+            </div>
+            <div>
+                <button id="github-button" onclick="window.location.href='http://github.com/mgmehra2005/smartFlow'">GITHUB REPO</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="left-section" class="main-section">
+            {% block Leftcontent %}{% endblock %}
+        </section>
+        <section id="center-section" class="main-section">
+            {% block Centercontent %}{% endblock %}
+        </section>
+        <section id="right-section" class="main-section">
+            {% block Rightcontent %}{% endblock %}
+        </section>
+    </main>
+
+    <footer>
+        <center>SmartFlow by Matang Mehra. Published on {{ current_year }} <a href="https://github.com/mgmehra2005/smartFlow">GitHub</a></center>
+    </footer>
+
+    <script src="{{ url_for('static', filename='./script.js') }}"></script>
+</body>
+
+</html>
