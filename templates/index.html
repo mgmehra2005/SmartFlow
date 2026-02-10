@@ -1,69 +1,8 @@
-<!DOCTYPE html>
-<html>
+{% extends "masterTemplate.html" %}
 
-<head>
-    <title>SmartFlow</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
-    <link rel="shortcut icon" href="{{url_for('static', filename='./resources/favicon.png')}}" type="image/x-icon">
-</head>
-
-<body>
-
-    <header>
-        <nav>
-            <div>
-                <img src="{{ url_for('static', filename='./resources/logo.png') }}" alt="Smart flow logo" class="header-logo">
+{% block Centercontent %}
+            <div id="createTeam" onclick=window.location.href="{{ url_for('createTeam') }}">
+                +<br>
+                Create new Team
             </div>
-            <div>
-                <button id="github-button" onclick="window.location.href='http://github.com/mgmehra2005/smartFlow'">GITHUB REPO</button>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section id="left-section" class="main-section">
-
-        </section>
-        <section id="center-section" class="main-section">
-
-        </section>
-        <section id="right-section" class="main-section">
-
-        </section>
-    </main>
-
-    <!-- <h1>SmartFlow – Intelligent Task Assignment</h1> -->
-
-    <!-- <section>
-        <h2>Team Members</h2>
-        <textarea id="members" rows="6">
-            [
-            {"id":1,"name":"Alice","skills":["frontend","design"],"availability":6},
-            {"id":2,"name":"Bob","skills":["backend"],"availability":5},
-            {"id":3,"name":"Charlie","skills":["frontend","backend"],"availability":4}
-            ]
-        </textarea>
-    </section>
-
-    <section>
-        <h2>Tasks</h2>
-        <textarea id="tasks" rows="6">
-            [
-            {"id":1,"title":"Landing Page","required_skills":["frontend"],"priority":4,"effort":3},
-            {"id":2,"title":"API Development","required_skills":["backend"],"priority":5,"effort":4},
-            {"id":3,"title":"UI Fixes","required_skills":["design"],"priority":2,"effort":2}
-            ]
-        </textarea>
-    </section>
-
-    <button onclick="assignTasks()">Smart Assign</button>
-
-    <section>
-        <h2>Assignments</h2>
-        <pre id="result"></pre>
-    </section> -->
-
-    <script src="{{ url_for('static', filename='./script.js') }}"></script>
-</body>
-
-</html>
+{% endblock %}

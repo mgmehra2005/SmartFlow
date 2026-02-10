@@ -1,47 +1,17 @@
 {% extends 'masterTemplate.html' %}
 
 {% block Centercontent %}
-<div id="addTeamMemberForm">
-    <h1>ADD NEW MEMBER</h1>
-    <section id="section1" class="addNewMemberSection">
-        <div>
-            <input type="text" id="teamMemberName" name="teamMemberName" class="teamFormInput"
-                placeholder="Member Name" required>
-            <input type="text" id="teamMemberAvailability" name="teamMemberAvailability" class="teamFormInput"
-                placeholder="Availability Hours" required>
-        </div>
-        <div class="container">
-            <div class="skills-box" id="skillsBox">
-                <div class="tags" id="tags"></div>
-                <input type="text" id="skillInput" placeholder="Type a skill (e.g. Frontend, Backend, SQL)"
-                     />
+    <div id="addTeamMemberForm">
+        <h1>ADD NEW MEMBER</h1>
+        <section id="section1" class="addNewMemberSection">
+            <div>
+                <input type="text" id="teamMemberName" name="teamMemberName" class="teamFormInput" placeholder="Member Name">
+                <input type="text" id="teamMemberAvailability" name="teamMemberAvailability" class="teamFormInput" placeholder="Availability Hours">
             </div>
-
-            <div class="suggestions" id="suggestions"></div>
-
-            <div class="summary" id="summary"></div>
-        </div>
-
-    </section>
-    <button id="addTeam" onclick="addMember()">ADD MEMBER</button>
-<<<<<<< HEAD
-    <button id="createTasks" onclick=pushMembers()>CREATE TASKS</button>
-=======
-    <button id="createTasks" onclick=window.location.href="{{ url_for('createTasks') }}">CREATE TASKS</button>
->>>>>>> 3ee15c4 (UI Update V.2.1 - Completed Add New Member Page and Started Work on New Task Add Page, Few Changes on script.js ( added function that updates new member record table and adds new member to members list) and few changes on styles.css ( added new style rules for new member add page ))
-</div>
- <div id="AddedMemberTable">
-    <table id="addedMembersTable">
-        <thead id="addedMembersTableHead"> 
-            <tr>
-                <th>Name</th>
-                <th>Availability</th>
-                <th>Skills</th>
-            </tr>
-        </thead>
-        <tbody id="addedMembersTableBody">
-            
-        </tbody>
-    </table>
- </div>
+            <div>
+                <input type="text" id="teamMemberSkill" name="teamMemberSkill" class="teamFormInput" placeholder="Add Skills">
+            </div>
+        </section>
+        <button id="addTeam">ADD MEMBER</button>
+    </div>
 {% endblock %}

@@ -6,6 +6,6 @@
         <div>
             <input type="text" id="teamName" name="teamName" placeholder="Team Name">
         </div>
-        <button id="addTeam" onclick="setTeam()">ADD TEAM MEMBER</button>
+        <button id="addTeam" onclick=window.location.href="{{ url_for('addTeamMember') }}">ADD TEAM MEMBER</button>
     </div>
 {% endblock %}
