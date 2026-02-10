@@ -3,8 +3,8 @@ from smartflow_engine import Member, Task, assignTasks
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
-def health():
+@app.route("/")
+def home():
     return render_template("index.html")
 
 @app.route("/assign", methods=["POST"])
@@ -19,6 +19,17 @@ def assign():
 
     print("Assignments from Smartflow Engine: ", assignments)
     return jsonify({"assignments": assignments})
+
+
+@app.route("/createTeam")
+def createTeam():
+    return render_template("createTeam.html")
+
+@app.route("/AddTeamMember")
+def addTeamMember():
+    return render_template("addTeamMember.html")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

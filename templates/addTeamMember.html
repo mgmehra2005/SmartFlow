@@ -1,0 +1,17 @@
+{% extends 'masterTemplate.html' %}
+
+{% block Centercontent %}
+    <div id="addTeamMemberForm">
+        <h1>ADD NEW MEMBER</h1>
+        <section id="section1" class="addNewMemberSection">
+            <div>
+                <input type="text" id="teamMemberName" name="teamMemberName" class="teamFormInput" placeholder="Member Name">
+                <input type="text" id="teamMemberAvailability" name="teamMemberAvailability" class="teamFormInput" placeholder="Availability Hours">
+            </div>
+            <div>
+                <input type="text" id="teamMemberSkill" name="teamMemberSkill" class="teamFormInput" placeholder="Add Skills">
+            </div>
+        </section>
+        <button id="addTeam">ADD MEMBER</button>
+    </div>
+{% endblock %}

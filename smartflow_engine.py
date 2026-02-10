@@ -9,6 +9,15 @@ class Member:
     def remaining_capacity(self):
         return self.availability - self.current_workload
 
+    def __repr__(self):
+        return f"Member(id={self.id}, name={self.name}, skills={self.skills}, availability={self.availability}, current_workload={self.current_workload})"
+
+    def __version__(self):
+        return "Version 1.0"
+    
+    def __name__(self):
+        return "Member"
+
 class Task:
     def __init__(self, task_id, title, required_skills, priority, efforts):
         self.id = task_id
@@ -17,6 +26,15 @@ class Task:
         self.priority = priority             # Priority level of the task   (1-5)
         self.efforts = efforts        # Estimated effort required to complete the task in hours
         self.assigned_to = None
+
+    def __repr__(self) -> str:
+        return f"Task(id={self.id}, title={self.title}, required_skills={self.required_skills}, priority={self.priority}, efforts={self.efforts}, assigned_to={self.assigned_to})"
+    
+    def __version__(self):
+        return "Version 1.0"
+    
+    def __name__(self):
+        return "Task"
 
 def calculateScore(member, task):
 
@@ -81,21 +99,21 @@ def assignTasks(members, tasks):
     return assignments
 
 
-if __name__ == "__main__":
-    members = [
-        Member(1, "Alice", ["frontend", "design"], 6),
-        Member(2, "Bob", ["backend"], 5),
-        Member(3, "Charlie", ["frontend", "backend"], 4),
-        Member(4, "Diana", ["design", "backend"], 7)
-    ]
+# if __name__ == "__main__":
+#     members = [
+#         Member(1, "Alice", ["frontend", "design"], 6),
+#         Member(2, "Bob", ["backend"], 5),
+#         Member(3, "Charlie", ["frontend", "backend"], 4),
+#         Member(4, "Diana", ["design", "backend"], 7)
+#     ]
 
-    tasks = [
-        Task(1, "Landing Page", ["frontend"], 4, 3),
-        Task(2, "API Development", ["backend"], 5, 4),
-        Task(3, "UI Fixes", ["design"], 2, 2),
-        Task(4, "Fullstack Feature", ["design", "api","backend"], 5, 5)
-    ]
+#     tasks = [
+#         Task(1, "Landing Page", ["frontend"], 4, 3),
+#         Task(2, "API Development", ["backend"], 5, 4),
+#         Task(3, "UI Fixes", ["design"], 2, 2),
+#         Task(4, "Fullstack Feature", ["design", "api","backend"], 5, 5)
+#     ]
 
-    result = assignTasks(members, tasks)
-    for r in result:
-        print(r)
+#     result = assignTasks(members, tasks)
+#     for r in result:
+#         print(r)
