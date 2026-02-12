@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 let selectedSkills = [];
 const membersList = [];
 const tasks = [];
 let memberid = 1;
 let taskid = 1;
+=======
+const selectedSkills = [];
+const members = [];
+const tasks = [];
+let memberid = 0;
+let taskid = 0;
+>>>>>>> 3ee15c4 (UI Update V.2.1 - Completed Add New Member Page and Started Work on New Task Add Page, Few Changes on script.js ( added function that updates new member record table and adds new member to members list) and few changes on styles.css ( added new style rules for new member add page ))
 
 const skillsList = [
     "Frontend", "Backend", "SQL", "Designer", "React", "Node.js",
@@ -64,7 +72,11 @@ function addSkill(skill) {
 
     do {
         summaryDiv.style.display = "block";
+<<<<<<< HEAD
         input.placeholder = "";
+=======
+        input.placeholder = "";   
+>>>>>>> 3ee15c4 (UI Update V.2.1 - Completed Add New Member Page and Started Work on New Task Add Page, Few Changes on script.js ( added function that updates new member record table and adds new member to members list) and few changes on styles.css ( added new style rules for new member add page ))
     } while (false);
 }
 
@@ -116,8 +128,8 @@ document.addEventListener("click", (e) => {
 
 
 function assignTasks() {
-    const members = JSON.parse(document.getElementById("members").value);
-    const tasks = JSON.parse(document.getElementById("tasks").value);
+    const members = members
+    const tasks = tasks
 
     fetch("/assign", {
         method: "POST",
@@ -129,6 +141,7 @@ function assignTasks() {
             tasksList: localStorage.getItem("tasksList") ? JSON.parse(localStorage.getItem("tasksList")) : []
         })
     })
+<<<<<<< HEAD
         .then(response => {
             if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
             return response.json();
@@ -209,6 +222,31 @@ function addMember() {
     if (name && !isNaN(availability) && skills.length) {
         membersList.push({ "id": memberid, "name": name, "availability": availability, "skills": skills });
         console.log({ "id": memberid, "name": name, "availability": availability, "skills": skills });
+=======
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("result").textContent =
+                JSON.stringify(data.assignments, null, 2);
+            console.log("Assignments:", data.assignments);
+        })
+        .catch(error => {
+            document.getElementById("result").textContent =
+                "Error connecting to SmartFlow API";
+        });
+
+    console.log("Members:", members);
+    console.log("Tasks:", tasks);
+
+}
+
+function addMember() {
+    const name = document.getElementById("teamMemberName").value;
+    const availability = parseInt(document.getElementById("teamMemberAvailability").value);
+    const skills = selectedSkills;
+
+    if (name && !isNaN(availability) && skills.length) {
+        members.push({ "id": memberid, "name": name, "availability": availability, "skills": skills });
+>>>>>>> 3ee15c4 (UI Update V.2.1 - Completed Add New Member Page and Started Work on New Task Add Page, Few Changes on script.js ( added function that updates new member record table and adds new member to members list) and few changes on styles.css ( added new style rules for new member add page ))
         updateAddedMembersRecord();
         document.getElementById("teamMemberName").value = "";
         document.getElementById("teamMemberAvailability").value = "";
@@ -222,8 +260,8 @@ function addMember() {
 
 function updateAddedMembersRecord() {
     const recordTable = document.getElementById("addedMembersTableBody");
-    const tableIndex = membersList.length - 1;
-    const member = membersList[tableIndex];
+    const tableIndex = members.length - 1;
+    const member = members[tableIndex];
 
     const row = document.createElement("tr");
     row.innerHTML = `
