@@ -1,14 +1,14 @@
 {% extends 'masterTemplate.html' %}
 
 {% block Centercontent %}
-<div id="addTeamMemberForm">
-    <h1>ADD NEW MEMBER</h1>
-    <section id="section1" class="addNewMemberSection">
+    <div id="addTasksForm">
+    <h1>ADD NEW TASKS</h1>
+    <section id="section1" class="addNewTaskSection">
         <div>
-            <input type="text" id="teamMemberName" name="teamMemberName" class="teamFormInput"
-                placeholder="Member Name" required>
-            <input type="text" id="teamMemberAvailability" name="teamMemberAvailability" class="teamFormInput"
-                placeholder="Availability Hours" required>
+            <input type="text" id="taskName" name="taskName" class="taskFormInput"
+                placeholder="Task Name" required>
+            <input type="text" id="taskEffort" name="taskEffort" class="taskFormInput"
+                placeholder="Effort Hours" required>
         </div>
         <div class="container">
             <div class="skills-box" id="skillsBox">
@@ -23,19 +23,19 @@
         </div>
 
     </section>
-    <button id="addTeam" onclick="addMember()">ADD MEMBER</button>
+    <button id="addTask" onclick="addTask()">ADD TASK</button>
     <button id="createTasks" onclick=window.location.href="{{ url_for('createTasks') }}">CREATE TASKS</button>
 </div>
- <div id="AddedMemberTable">
-    <table id="addedMembersTable">
-        <thead id="addedMembersTableHead"> 
+ <div id="AddedTaskTable">
+    <table id="addedTasksTable">
+        <thead id="addedTasksTableHead"> 
             <tr>
                 <th>Name</th>
-                <th>Availability</th>
+                <th>Effort</th>
                 <th>Skills</th>
             </tr>
         </thead>
-        <tbody id="addedMembersTableBody">
+        <tbody id="addedTasksTableBody">
             
         </tbody>
     </table>
