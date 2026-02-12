@@ -28,7 +28,9 @@ def createTeam():
 def addTeamMember():
     return render_template("addTeamMember.html")
 
-
+@app.route("/createTasls")
+def createTasks():
+    return render_template("createTasks.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
