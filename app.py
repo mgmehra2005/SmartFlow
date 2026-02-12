@@ -45,6 +45,7 @@ def createTeam():
 def addTeamMember():
     return render_template("addTeamMember.html")
 
+<<<<<<< HEAD
 @app.route("/createTasks")
 def createTasks():
     return render_template("createTasks.html")
@@ -52,6 +53,12 @@ def createTasks():
 @app.route("/assignedTasks")
 def assignedTasks():
     return render_template("assignedTask.html")
+=======
+@app.route("/createTasls")
+def createTasks():
+    return render_template("createTasks.html")
+
+>>>>>>> 3ee15c4 (UI Update V.2.1 - Completed Add New Member Page and Started Work on New Task Add Page, Few Changes on script.js ( added function that updates new member record table and adds new member to members list) and few changes on styles.css ( added new style rules for new member add page ))
 if __name__ == "__main__":
     app.run(debug=True)
     
