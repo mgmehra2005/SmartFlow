@@ -4,11 +4,21 @@
     <div id="addTasksForm">
     <h1>ADD NEW TASKS</h1>
     <section id="section1" class="addNewTaskSection">
-        <div>
+        <div id="taskNameEffort">
             <input type="text" id="taskName" name="taskName" class="taskFormInput"
                 placeholder="Task Name" required>
             <input type="text" id="taskEffort" name="taskEffort" class="taskFormInput"
                 placeholder="Effort Hours" required>
+        </div>
+        <div class="PrioritySelection">
+            <select name="SetPriority" id="SetPrioritySelection">
+                <option value="1" class="setPriorityOptions">Very Low</option>
+                <option value="2" class="setPriorityOptions">Low</option>
+                <option value="3" class="setPriorityOptions">Medium</option>
+                <option value="4" class="setPriorityOptions">High</option>
+                <option value="5" class="setPriorityOptions">Very High</option>
+            </select>
+
         </div>
         <div class="container">
             <div class="skills-box" id="skillsBox">
@@ -24,7 +34,7 @@
 
     </section>
     <button id="addTask" onclick="addTask()">ADD TASK</button>
-    <button id="createTasks" onclick=window.location.href="{{ url_for('createTasks') }}">CREATE TASKS</button>
+    <button id="createTasks" onclick=pushTasks()>Assign Tasks</button>
 </div>
  <div id="AddedTaskTable">
     <table id="addedTasksTable">
