@@ -220,18 +220,56 @@ function addMember() {
 =======
         .then(response => response.json())
         .then(data => {
-            document.getElementById("result").textContent =
-                JSON.stringify(data.assignments, null, 2);
             console.log("Assignments:", data.assignments);
+            // document.getElementById("result").textContent = JSON.stringify(data.assignments, null, 2);
         })
         .catch(error => {
-            document.getElementById("result").textContent =
-                "Error connecting to SmartFlow API";
+            console.error("Error in assignTasks:", error);
+            // document.getElementById("result").textContent = "Error connecting to SmartFlow API";
+});
+}
+
+function pushMembers() {
+    fetch("/members", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            members: membersList
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status == 200) {
+                console.log("Members Assigned Successfully");
+                window.location.href = "/createTasks";
+            }
+        }).catch(error => {
+            console.error("Error pushing members:", error);
         });
+}
 
-    console.log("Members:", members);
-    console.log("Tasks:", tasks);
-
+function pushTasks() {
+    fetch("/tasks", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            tasksList: tasks
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status == 200) {
+                console.log("Tasks Assigned Successfully");
+                window.location.href = "/assignedTasks";
+                assignTasks();
+            }
+        }).catch(error => {
+            console.error("Error pushing tasks:", error);
+        });
 }
 
 function addMember() {
