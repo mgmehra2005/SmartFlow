@@ -66,12 +66,12 @@ def calculateScore(member, task):
 
     return round(score, 3)
 
-def assignTasks(members, tasks):
+def assignTasks(members, tasks) -> list:
 
     assignments = []
 
     sorted_tasks = sorted(sorted(tasks, key=lambda t: t.priority, reverse=True), key=lambda t: t.efforts, reverse=True)
-    print("Sorted Tasks: ", [t.title for t in sorted_tasks])
+    # print("Sorted Tasks: ", [t.title for t in sorted_tasks])
     for task in sorted_tasks:
         best_member = None
         best_score = 0

@@ -100,7 +100,7 @@ main {
 
             &:hover {
                 border: 1px solid #dfdfdf;
-                
+
             }
         }
 
@@ -147,7 +147,7 @@ footer {
     border: none;
     color: white;
     font-weight: bold;
-    
+
     &:hover {
         background-color: #b587f8;
     }
@@ -156,7 +156,7 @@ footer {
 #addTeamMemberForm {
     width: 100%;
     /* height: 100%; */
-    display: flex;  
+    display: flex;
     align-items: center;
     flex-direction: column;
     /* border: 1px solid red; */
@@ -177,82 +177,82 @@ footer {
 }
 
 .container {
-  max-width: 100%;
-  margin: auto;
-  padding-bottom: 20px;
+    max-width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
 }
 
 .skills-box {
-  border: 2px solid #ccc;
-  padding: 10px;
-  border-radius: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  cursor: text;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    cursor: text;
 }
 
 .skills-box:focus-within {
-  border-color: #4f46e5;
+    border-color: #4f46e5;
 }
 
 .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .tag {
-  background: #4f46e5;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+    background: #4f46e5;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .tag span {
-  cursor: pointer;
-  font-weight: bold;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 #skillInput {
-  border: none;
-  outline: none;
-  flex: 1;
-  min-width: 200px;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
+    border: none;
+    outline: none;
+    flex: 1;
+    min-width: 200px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
 }
 
 .suggestions {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-top: 5px;
-  max-height: 180px;
-  overflow-y: auto;
-  display: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    max-height: 180px;
+    overflow-y: auto;
+    display: none;
 }
 
 .suggestion {
-  padding: 10px;
-  cursor: pointer;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .suggestion:hover {
-  background: #eef2ff;
+    background: #eef2ff;
 }
 
 .summary {
-  margin-top: 20px;
-  background: #eef2ff;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  display: none;
+    margin-top: 20px;
+    background: #eef2ff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
 }
 
 div#AddedMemberTable {
@@ -264,7 +264,7 @@ div#AddedMemberTable {
     margin-top: 50px;
     /* border: 1px dashed red; */
 
-    thead > tr {
+    thead>tr {
         background-color: #b587f8;
         color: white;
         border-collapse: collapse;
@@ -275,10 +275,10 @@ div#AddedMemberTable {
         }
     }
 
-    tbody > tr {
+    tbody>tr {
         background-color: #f9f9f9;
         border-bottom: 1px solid #ddd;
-        
+
         td {
             padding: 10px;
             font-size: 12pt;
@@ -297,5 +297,198 @@ div#AddedMemberTable {
     background-color: transparent;
     color: #6b6bff;
     font-weight: bold;
+}
+
+/* -------------------------------------CSS for Create Task------------------------------------ */
+
+#addTasksForm {
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+
+.taskFormInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid #dfdfdf;
+
+}
+
+#skillInput {
+    width: 100%;
+}
+
+.container {
+    max-width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.skills-box {
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    cursor: text;
+}
+
+.skills-box:focus-within {
+    border-color: #4f46e5;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: #4f46e5;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tag span {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#skillInput {
+    border: none;
+    outline: none;
+    flex: 1;
+    min-width: 200px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.suggestions {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    max-height: 180px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background: #eef2ff;
+}
+
+.summary {
+    margin-top: 20px;
+    background: #eef2ff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
+}
+
+div#AddedTaskTable {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    /* border: 1px dashed red; */
+
+    thead>tr {
+        background-color: #b587f8;
+        color: white;
+        border-collapse: collapse;
+
+        th {
+            padding: 10px;
+            font-size: 12pt;
+        }
+    }
+
+    tbody>tr {
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #ddd;
+
+        td {
+            padding: 10px;
+            font-size: 12pt;
+        }
+    }
+}
+
+#createTasks {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 300px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid #6b6bff;
+    background-color: transparent;
+    color: #6b6bff;
+    font-weight: bold;
+}
+
+#addTask {
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 300px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #6b6bff;
+    border: none;
+    color: white;
+    font-weight: bold;
+
+    &:hover {
+        background-color: #b587f8;
+    }
+}
+
+.PrioritySelection {
+    width: 100%;
+
+    #SetPrioritySelection {
+        width: 100%;
+        font-size: 12pt;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: 2px solid #dfdfdf;
+        background-color: white;
+
+        &:focus {
+            border: 2px solid #b587f8
+        }
+
+        &:after {
+            border: 2px solid #b587f8
+        }
+
+    }
+
+    #SetPrioritySelection:open {
+        border: 1px solid #b587f8;
+    }
 }
 
