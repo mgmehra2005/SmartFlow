@@ -1,32 +1,5 @@
 {% extends 'masterTemplate.html' %}
 
 {% block Centercontent %}
-<style>
-    #center-section {
-        align-items: flex-start;
-    }
-</style>
-<script>
-    window.addEventListener("load", function () {
-        assignTasks();
-    });
-</script>
-<h1>Assigned Tasks</h1>
 
-<div id="displayResult">
-    <table id="assignmentTable">
-        <thead id="assignmentTableHead">
-            <tr>
-                <th>Team Member</th>
-                <th>Task Assigned</th>
-            </tr>
-        </thead>
-        <tbody id="assignmentTableBody">
-
-
-        </tbody>
-    </table>
-
-    <p id="result"></p>
-</div>
 {% endblock %}
