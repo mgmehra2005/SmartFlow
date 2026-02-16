@@ -3,18 +3,6 @@ from smartflow_engine import Member, Task, assignTasks
 
 app = Flask(__name__)
 
-# members = [
-#         Member(1, "Alice", ["frontend", "design"], 6),
-#         Member(2, "Bob", ["backend"], 5),
-#         Member(3, "Charlie", ["frontend", "backend"], 4),
-#         Member(4, "Diana", ["design", "backend"], 7)
-#     ]
-# tasks = [
-#         Task(1, "Landing Page", ["frontend"], 4, 3),
-#         Task(2, "API Development", ["backend"], 5, 4),
-#         Task(3, "UI Fixes", ["design"], 2, 2),
-#         Task(4, "Fullstack Feature", ["design", "api","backend"], 5, 5)
-#     ]
 members = []
 tasks = []
 @app.route("/")
@@ -24,16 +12,13 @@ def home():
 @app.route("/assign", methods=["POST"])
 def assign():
     data = request.get_json()
-    # members = [Member(m["id"], m["name"], m["skills"], m["availability"]) for m in data["members"]]
-
-    # tasks = [Task(t["id"], t["title"], t["required_skills"], t["priority"], t["effort"]) for t in data["tasks"]]
-    print(data["request"])
-    print("Calling Smartflow Engine with Members: ", members)
-    print("Calling Smartflow Engine with Tasks: ", tasks)
+    # print(data["request"])
+    # print("Calling Smartflow Engine with Members: ", members)
+    # print("Calling Smartflow Engine with Tasks: ", tasks)
     assignments = assignTasks(members, tasks)
-
-    print("Assignments from Smartflow Engine: ", assignments)
-    return jsonify({"assignments": assignments})
+    jsonedData = jsonify({"assignments": assignments})
+    print("Assignments from Smartflow Engine: ", jsonedData.get_json())
+    return jsonedData
 
 
 @app.route("/members", methods=["POST"])

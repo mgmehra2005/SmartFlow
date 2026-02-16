@@ -12,23 +12,8 @@ html {
 
 body {
     margin: 0px;
-    /* overflow: hidden; */
 }
 
-/* section {
-    margin-bottom: 20px;
-}
-
-textarea {
-    width: 100%;
-    font-family: monospace;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-} */
 
 header {
     display: flex;

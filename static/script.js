@@ -116,6 +116,7 @@ document.addEventListener("click", (e) => {
 
 
 function assignTasks() {
+    console.log("Assigning tasks");
     fetch("/assign", {
         method: "POST",
         headers: {
@@ -123,8 +124,6 @@ function assignTasks() {
         },
         body: JSON.stringify({
             request: "assignedData",
-            members: membersList,
-            tasks: tasks
         })
     })
         .then(response => {
@@ -133,11 +132,11 @@ function assignTasks() {
         })
         .then(data => {
             console.log("Assignments:", data.assignments);
-            // document.getElementById("result").textContent = JSON.stringify(data.assignments, null, 2);
+            document.getElementById("result").textContent = JSON.stringify(data.assignments, null, 2);
         })
         .catch(error => {
             console.error("Error in assignTasks:", error);
-            // document.getElementById("result").textContent = "Error connecting to SmartFlow API";
+            document.getElementById("result").textContent = "Error connecting to SmartFlow API";
 });
 }
 
@@ -187,7 +186,7 @@ function pushTasks() {
 function addMember() {
     const name = document.getElementById("teamMemberName").value;
     const availability = parseInt(document.getElementById("teamMemberAvailability").value);
-    const skills = selectedSkills;
+    const skills = [...selectedSkills];
 
     if (name && !isNaN(availability) && skills.length) {
         membersList.push({ "id": memberid, "name": name, "availability": availability, "skills": skills });
@@ -223,7 +222,7 @@ function addTask() {
     const task = document.getElementById("taskName").value;
     const taskEffort = parseInt(document.getElementById("taskEffort").value);
     const priority = parseInt(document.getElementById("SetPrioritySelection").value);
-    const skills = selectedSkills;
+    const skills = [...selectedSkills];
 
     // console.log(`${task}, ${taskEffort}, ${priority}, ${skills}`);
     if (task && !isNaN(taskEffort) && skills.length) {
