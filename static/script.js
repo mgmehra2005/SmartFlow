@@ -140,6 +140,7 @@ document.addEventListener("click", (e) => {
 
 
 function assignTasks() {
+    console.log("Assigning tasks");
     fetch("/assign", {
         method: "POST",
         headers: {
@@ -154,8 +155,6 @@ function assignTasks() {
 <<<<<<< HEAD
 =======
             request: "assignedData",
-            members: membersList,
-            tasks: tasks
         })
     })
 >>>>>>> 017e71a (Implement member and task management features with API integration and UI updates)
@@ -165,6 +164,7 @@ function assignTasks() {
         })
         .then(data => {
             console.log("Assignments:", data.assignments);
+<<<<<<< HEAD
 <<<<<<< HEAD
             const tableBody = document.getElementById("assignmentTableBody");
             tableBody.innerHTML = "";
@@ -187,6 +187,13 @@ function assignTasks() {
             console.error("Error in assignTasks:", error);
             // document.getElementById("result").textContent = "Error connecting to SmartFlow API";
 >>>>>>> 017e71a (Implement member and task management features with API integration and UI updates)
+=======
+            document.getElementById("result").textContent = JSON.stringify(data.assignments, null, 2);
+        })
+        .catch(error => {
+            console.error("Error in assignTasks:", error);
+            document.getElementById("result").textContent = "Error connecting to SmartFlow API";
+>>>>>>> d66d0ac (Fixed Skills not loading issue)
 });
 }
 
@@ -296,7 +303,7 @@ function pushTasks() {
 function addMember() {
     const name = document.getElementById("teamMemberName").value;
     const availability = parseInt(document.getElementById("teamMemberAvailability").value);
-    const skills = selectedSkills;
+    const skills = [...selectedSkills];
 
     if (name && !isNaN(availability) && skills.length) {
 <<<<<<< HEAD
@@ -338,10 +345,14 @@ function addTask() {
     const taskEffort = parseInt(document.getElementById("taskEffort").value);
     const priority = parseInt(document.getElementById("SetPrioritySelection").value);
 <<<<<<< HEAD
+<<<<<<< HEAD
     const skills = [...selectedSkills];
 =======
     const skills = selectedSkills;
 >>>>>>> 017e71a (Implement member and task management features with API integration and UI updates)
+=======
+    const skills = [...selectedSkills];
+>>>>>>> d66d0ac (Fixed Skills not loading issue)
 
     // console.log(`${task}, ${taskEffort}, ${priority}, ${skills}`);
     if (task && !isNaN(taskEffort) && skills.length) {

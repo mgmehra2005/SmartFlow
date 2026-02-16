@@ -12,9 +12,9 @@ html {
 
 body {
     margin: 0px;
-    /* overflow: hidden; */
 }
 
+<<<<<<< HEAD
 /* section {
     margin-bottom: 20px;
     margin-top: 20px;
@@ -240,6 +240,8 @@ div#AddedMemberTable {
     padding: 10px;
     cursor: pointer;
 } */
+=======
+>>>>>>> d66d0ac (Fixed Skills not loading issue)
 
 header {
     display: flex;
