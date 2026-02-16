@@ -225,7 +225,7 @@ function addMember() {
         })
         .catch(error => {
             console.error("Error in assignTasks:", error);
-            // document.getElementById("result").textContent = "Error connecting to SmartFlow API";
+            document.getElementById("result").textContent = "Error connecting to SmartFlow API";
 });
 }
 
@@ -275,7 +275,7 @@ function pushTasks() {
 function addMember() {
     const name = document.getElementById("teamMemberName").value;
     const availability = parseInt(document.getElementById("teamMemberAvailability").value);
-    const skills = selectedSkills;
+    const skills = [...selectedSkills];
 
     if (name && !isNaN(availability) && skills.length) {
         members.push({ "id": memberid, "name": name, "availability": availability, "skills": skills });
