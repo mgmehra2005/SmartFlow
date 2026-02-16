@@ -1,5 +1,13 @@
 {% extends 'masterTemplate.html' %}
 
 {% block Centercontent %}
-
+    <script>
+        window.addEventListener("load", function () {
+            assignTasks();
+        });
+    </script>
+    <div id="displayResult">
+        <h1>Assigned Tasks</h1>
+        
+    </div>
 {% endblock %}
