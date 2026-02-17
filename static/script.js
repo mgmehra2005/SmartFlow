@@ -1,6 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 let selectedSkills = [];
+=======
+let selectedSkills = ["Frontedn"];
+>>>>>>> a785bb4 (Restore initial members and tasks data in app.py; update selectedSkills default value in script.js)
 const membersList = [];
 const tasks = [];
 let memberid = 1;
