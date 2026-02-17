@@ -1,4 +1,4 @@
-let selectedSkills = [];
+let selectedSkills = ["Frontedn"];
 const membersList = [];
 const tasks = [];
 let memberid = 1;
