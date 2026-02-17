@@ -1,10 +1,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 let selectedSkills = [];
 =======
 let selectedSkills = ["Frontedn"];
 >>>>>>> a785bb4 (Restore initial members and tasks data in app.py; update selectedSkills default value in script.js)
+=======
+let selectedSkills = [];
+>>>>>>> 54e9054 (Refactor assignment display logic and improve table styling in assignedTask.html and style.css; reset selectedSkills in script.js)
 const membersList = [];
 const tasks = [];
 let memberid = 1;
@@ -170,11 +174,15 @@ function assignTasks() {
             console.log("Assignments:", data.assignments);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 54e9054 (Refactor assignment display logic and improve table styling in assignedTask.html and style.css; reset selectedSkills in script.js)
             const tableBody = document.getElementById("assignmentTableBody");
             tableBody.innerHTML = "";
             data.assignments.forEach(assignment => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
+<<<<<<< HEAD
                     <td>${assignment.assigned_to}</td>
                     <td>${assignment.task_title}</td>
                 `;
@@ -193,6 +201,13 @@ function assignTasks() {
 >>>>>>> 017e71a (Implement member and task management features with API integration and UI updates)
 =======
             document.getElementById("result").textContent = JSON.stringify(data.assignments, null, 2);
+=======
+                    <td>${data.member}</td>
+                    <td>${data.task}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+>>>>>>> 54e9054 (Refactor assignment display logic and improve table styling in assignedTask.html and style.css; reset selectedSkills in script.js)
         })
         .catch(error => {
             console.error("Error in assignTasks:", error);
@@ -386,6 +401,7 @@ function updateAddedTasksRecord() {
     `;
     recordTable.appendChild(row);
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 function setTeam() {
@@ -401,3 +417,7 @@ function setTeam() {
 =======
 }
 >>>>>>> 017e71a (Implement member and task management features with API integration and UI updates)
+=======
+}
+
+>>>>>>> 54e9054 (Refactor assignment display logic and improve table styling in assignedTask.html and style.css; reset selectedSkills in script.js)
