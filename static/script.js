@@ -1,4 +1,4 @@
-let selectedSkills = ["Frontedn"];
+let selectedSkills = [];
 const membersList = [];
 const tasks = [];
 let memberid = 1;
@@ -132,7 +132,16 @@ function assignTasks() {
         })
         .then(data => {
             console.log("Assignments:", data.assignments);
-            document.getElementById("result").textContent = JSON.stringify(data.assignments, null, 2);
+            const tableBody = document.getElementById("assignmentTableBody");
+            tableBody.innerHTML = "";
+            data.assignments.forEach(assignment => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${data.member}</td>
+                    <td>${data.task}</td>
+                `;
+                tableBody.appendChild(row);
+            });
         })
         .catch(error => {
             console.error("Error in assignTasks:", error);
@@ -252,3 +261,4 @@ function updateAddedTasksRecord() {
     `;
     recordTable.appendChild(row);
 }
+
