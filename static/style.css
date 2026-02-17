@@ -477,3 +477,45 @@ div#AddedTaskTable {
     }
 }
 
+
+#displayResult {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#assignmentTable {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    /* border: 1px dashed red; */
+
+    thead {
+        width: 100%;
+    }
+
+    thead>tr {
+        background-color: #b587f8;
+        color: white;
+        border-collapse: collapse;
+
+        th {
+            padding: 10px;
+            font-size: 12pt;
+        }
+    }
+
+    tbody>tr {
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #ddd;
+
+        td {
+            padding: 10px;
+            font-size: 12pt;
+        }
+    }
+}
