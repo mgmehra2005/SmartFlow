@@ -12,9 +12,9 @@ def home():
 @app.route("/assign", methods=["POST"])
 def assign():
     data = request.get_json()
-    # print(data["request"])
-    # print("Calling Smartflow Engine with Members: ", members)
-    # print("Calling Smartflow Engine with Tasks: ", tasks)
+    print(data["request"])
+    print("Calling Smartflow Engine with Members: ", members)
+    print("Calling Smartflow Engine with Tasks: ", tasks)
     assignments = assignTasks(members, tasks)
     jsonedData = jsonify({"assignments": assignments})
     print("Assignments from Smartflow Engine: ", jsonedData.get_json())

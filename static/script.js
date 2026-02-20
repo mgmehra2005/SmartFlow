@@ -185,7 +185,7 @@ function pushTasks() {
             if (data.status == 200) {
                 console.log("Tasks Assigned Successfully");
                 window.location.href = "/assignedTasks";
-                assignTasks();
+                // assignTasks();
             }
         }).catch(error => {
             console.error("Error pushing tasks:", error);
