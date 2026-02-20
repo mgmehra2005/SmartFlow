@@ -31,6 +31,7 @@ def assign():
     data = request.get_json()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     members = [Member(i["id"], i["name"], i["skills"], i["availability"]) for i in data.get("members", [])]
     tasks = [Task(t["id"], t["title"], t["required_skills"], t["priority"], t["effort"]) for t in data.get("tasksList", [])]
     # print("Received Members: ", members)
@@ -48,6 +49,11 @@ def assign():
     # print("Calling Smartflow Engine with Members: ", members)
     # print("Calling Smartflow Engine with Tasks: ", tasks)
 >>>>>>> d66d0ac (Fixed Skills not loading issue)
+=======
+    print(data["request"])
+    print("Calling Smartflow Engine with Members: ", members)
+    print("Calling Smartflow Engine with Tasks: ", tasks)
+>>>>>>> b22d86f (Uncomment debug print statements in app.py and comment out assignTasks call in script.js after task assignment to fix API error)
     assignments = assignTasks(members, tasks)
     jsonedData = jsonify({"assignments": assignments})
     print("Assignments from Smartflow Engine: ", jsonedData.get_json())
