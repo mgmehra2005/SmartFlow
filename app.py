@@ -20,7 +20,7 @@ def assign():
     # print("Calling Smartflow Engine with Tasks: ", tasks)
     assignments = assignTasks(members, tasks)
     jsonedData = jsonify({"assignments": assignments})
-    print("Assignments from Smartflow Engine: ", jsonedData.get_json())
+    # print("Assignments from Smartflow Engine: ", jsonedData.get_json())
     return jsonedData
     jsonedData = jsonify({"assignments": assignments})
     # print("Assignments from Smartflow Engine: ", jsonedData.get_json())
