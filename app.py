@@ -13,11 +13,11 @@ def home():
 def assign():
     data = request.get_json()
     print(data["request"])
-    print("Calling Smartflow Engine with Members: ", members)
-    print("Calling Smartflow Engine with Tasks: ", tasks)
+    # print("Calling Smartflow Engine with Members: ", members)
+    # print("Calling Smartflow Engine with Tasks: ", tasks)
     assignments = assignTasks(members, tasks)
     jsonedData = jsonify({"assignments": assignments})
-    print("Assignments from Smartflow Engine: ", jsonedData.get_json())
+    # print("Assignments from Smartflow Engine: ", jsonedData.get_json())
     return jsonedData
 
 

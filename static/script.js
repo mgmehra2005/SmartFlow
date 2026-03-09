@@ -137,8 +137,8 @@ function assignTasks() {
             data.assignments.forEach(assignment => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
-                    <td>${data.member}</td>
-                    <td>${data.task}</td>
+                    <td>${assignment.assigned_to}</td>
+                    <td>${assignment.task_title}</td>
                 `;
                 tableBody.appendChild(row);
             });
