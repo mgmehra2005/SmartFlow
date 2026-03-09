@@ -41,6 +41,7 @@ def assign():
 
     # tasks = [Task(t["id"], t["title"], t["required_skills"], t["priority"], t["effort"]) for t in data["tasks"]]
     print(data["request"])
+<<<<<<< HEAD
     print("Calling Smartflow Engine with Members: ", members)
     print("Calling Smartflow Engine with Tasks: ", tasks)
 >>>>>>> 017e71a (Implement member and task management features with API integration and UI updates)
@@ -54,9 +55,13 @@ def assign():
     print("Calling Smartflow Engine with Members: ", members)
     print("Calling Smartflow Engine with Tasks: ", tasks)
 >>>>>>> b22d86f (Uncomment debug print statements in app.py and comment out assignTasks call in script.js after task assignment to fix API error)
+=======
+    # print("Calling Smartflow Engine with Members: ", members)
+    # print("Calling Smartflow Engine with Tasks: ", tasks)
+>>>>>>> b4f88de (Refactor assignment display logic in script.js to use assigned task details; comment out debug print statements in app.py)
     assignments = assignTasks(members, tasks)
     jsonedData = jsonify({"assignments": assignments})
-    print("Assignments from Smartflow Engine: ", jsonedData.get_json())
+    # print("Assignments from Smartflow Engine: ", jsonedData.get_json())
     return jsonedData
 
 

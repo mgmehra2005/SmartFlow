@@ -183,6 +183,9 @@ function assignTasks() {
                 const row = document.createElement("tr");
                 row.innerHTML = `
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b4f88de (Refactor assignment display logic in script.js to use assigned task details; comment out debug print statements in app.py)
                     <td>${assignment.assigned_to}</td>
                     <td>${assignment.task_title}</td>
                 `;
