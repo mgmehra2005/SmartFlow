@@ -123,7 +123,8 @@ function assignTasks() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            request: "assignedData",
+            members: localStorage.getItem("membersList") ? JSON.parse(localStorage.getItem("membersList")) : [],
+            tasksList: localStorage.getItem("tasksList") ? JSON.parse(localStorage.getItem("tasksList")) : []
         })
     })
         .then(response => {
@@ -150,46 +151,52 @@ function assignTasks() {
 }
 
 function pushMembers() {
-    fetch("/members", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            members: membersList
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status == 200) {
-                console.log("Members Assigned Successfully");
-                window.location.href = "/createTasks";
-            }
-        }).catch(error => {
-            console.error("Error pushing members:", error);
-        });
+    // fetch("/members", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         members: membersList
+    //     })
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (data.status == 200) {
+    //             console.log("Members Assigned Successfully");
+    //             window.location.href = "/createTasks";
+    //         }
+    //     }).catch(error => {
+    //         console.error("Error pushing members:", error);
+    //     });
+
+    localStorage.setItem("membersList", JSON.stringify(membersList));
+    window.location.href = "/createTasks";
 }
 
 function pushTasks() {
-    fetch("/tasks", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            tasksList: tasks
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status == 200) {
-                console.log("Tasks Assigned Successfully");
-                window.location.href = "/assignedTasks";
-                // assignTasks();
-            }
-        }).catch(error => {
-            console.error("Error pushing tasks:", error);
-        });
+    // fetch("/tasks", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         tasksList: tasks
+    //     })
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (data.status == 200) {
+    //             console.log("Tasks Assigned Successfully");
+    //             window.location.href = "/assignedTasks";
+    //             // assignTasks();
+    //         }
+    //     }).catch(error => {
+    //         console.error("Error pushing tasks:", error);
+    //     });
+
+    localStorage.setItem("tasksList", JSON.stringify(tasks));
+    window.location.href = "/assignedTasks";
 }
 
 function addMember() {
@@ -262,3 +269,13 @@ function updateAddedTasksRecord() {
     recordTable.appendChild(row);
 }
 
+function setTeam() {
+    const teamName = document.getElementById("teamName").value;
+    if (teamName) {
+        localStorage.setItem("teamName", teamName);
+        console.log("Team name set to:", teamName);
+        window.location.href = "/AddTeamMember";
+    } else {
+        alert("Please enter a team name.");
+    }
+}
