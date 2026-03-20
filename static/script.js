@@ -139,7 +139,8 @@ function assignTasks() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            request: "assignedData",
+            members: localStorage.getItem("membersList") ? JSON.parse(localStorage.getItem("membersList")) : [],
+            tasksList: localStorage.getItem("tasksList") ? JSON.parse(localStorage.getItem("tasksList")) : []
         })
     })
 <<<<<<< HEAD
@@ -167,46 +168,121 @@ function assignTasks() {
 }
 
 function pushMembers() {
-    fetch("/members", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            members: membersList
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status == 200) {
-                console.log("Members Assigned Successfully");
-                window.location.href = "/createTasks";
-            }
-        }).catch(error => {
-            console.error("Error pushing members:", error);
-        });
+    // fetch("/members", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         members: membersList
+    //     })
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (data.status == 200) {
+    //             console.log("Members Assigned Successfully");
+    //             window.location.href = "/createTasks";
+    //         }
+    //     }).catch(error => {
+    //         console.error("Error pushing members:", error);
+    //     });
+
+    localStorage.setItem("membersList", JSON.stringify(membersList));
+    window.location.href = "/createTasks";
 }
 
 function pushTasks() {
-    fetch("/tasks", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            tasksList: tasks
-        })
-    })
+    // fetch("/tasks", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         tasksList: tasks
+    //     })
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (data.status == 200) {
+    //             console.log("Tasks Assigned Successfully");
+    //             window.location.href = "/assignedTasks";
+    //             // assignTasks();
+    //         }
+    //     }).catch(error => {
+    //         console.error("Error pushing tasks:", error);
+    //     });
+
+    localStorage.setItem("tasksList", JSON.stringify(tasks));
+    window.location.href = "/assignedTasks";
+}
+
+function addMember() {
+    const name = document.getElementById("teamMemberName").value;
+    const availability = parseInt(document.getElementById("teamMemberAvailability").value);
+    const skills = [...selectedSkills];
+
+    if (name && !isNaN(availability) && skills.length) {
+        membersList.push({ "id": memberid, "name": name, "availability": availability, "skills": skills });
+        console.log({ "id": memberid, "name": name, "availability": availability, "skills": skills });
+=======
         .then(response => response.json())
         .then(data => {
-            if (data.status == 200) {
-                console.log("Tasks Assigned Successfully");
-                window.location.href = "/assignedTasks";
-                // assignTasks();
-            }
-        }).catch(error => {
-            console.error("Error pushing tasks:", error);
-        });
+            console.log("Assignments:", data.assignments);
+            // document.getElementById("result").textContent = JSON.stringify(data.assignments, null, 2);
+        })
+        .catch(error => {
+            console.error("Error in assignTasks:", error);
+            document.getElementById("result").textContent = "Error connecting to SmartFlow API";
+});
+}
+
+function pushMembers() {
+    // fetch("/members", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         members: membersList
+    //     })
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (data.status == 200) {
+    //             console.log("Members Assigned Successfully");
+    //             window.location.href = "/createTasks";
+    //         }
+    //     }).catch(error => {
+    //         console.error("Error pushing members:", error);
+    //     });
+
+    localStorage.setItem("membersList", JSON.stringify(membersList));
+    window.location.href = "/createTasks";
+}
+
+function pushTasks() {
+    // fetch("/tasks", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         tasksList: tasks
+    //     })
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (data.status == 200) {
+    //             console.log("Tasks Assigned Successfully");
+    //             window.location.href = "/assignedTasks";
+    //             // assignTasks();
+    //         }
+    //     }).catch(error => {
+    //         console.error("Error pushing tasks:", error);
+    //     });
+
+    localStorage.setItem("tasksList", JSON.stringify(tasks));
+    window.location.href = "/assignedTasks";
 }
 
 function addMember() {
@@ -350,3 +426,14 @@ function updateAddedTasksRecord() {
 
 =======
 >>>>>>> 3ee15c4 (UI Update V.2.1 - Completed Add New Member Page and Started Work on New Task Add Page, Few Changes on script.js ( added function that updates new member record table and adds new member to members list) and few changes on styles.css ( added new style rules for new member add page ))
+
+function setTeam() {
+    const teamName = document.getElementById("teamName").value;
+    if (teamName) {
+        localStorage.setItem("teamName", teamName);
+        console.log("Team name set to:", teamName);
+        window.location.href = "/AddTeamMember";
+    } else {
+        alert("Please enter a team name.");
+    }
+}

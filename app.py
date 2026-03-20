@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, session
 from smartflow_engine import Member, Task, assignTasks
 
 app = Flask(__name__)
@@ -12,36 +12,31 @@ def home():
 @app.route("/assign", methods=["POST"])
 def assign():
     data = request.get_json()
-    # print(data["request"])
-    # print("Calling Smartflow Engine with Members: ", members)
-    # print("Calling Smartflow Engine with Tasks: ", tasks)
-    print(data["request"])
-    # print("Calling Smartflow Engine with Members: ", members)
-    # print("Calling Smartflow Engine with Tasks: ", tasks)
+    members = [Member(i["id"], i["name"], i["skills"], i["availability"]) for i in data.get("members", [])]
+    tasks = [Task(t["id"], t["title"], t["required_skills"], t["priority"], t["effort"]) for t in data.get("tasksList", [])]
+    # print("Received Members: ", members)
+    # print("Received Tasks: ", tasks)
     assignments = assignTasks(members, tasks)
     jsonedData = jsonify({"assignments": assignments})
     # print("Assignments from Smartflow Engine: ", jsonedData.get_json())
     return jsonedData
-    jsonedData = jsonify({"assignments": assignments})
-    # print("Assignments from Smartflow Engine: ", jsonedData.get_json())
-    return jsonedData
 
 
-@app.route("/members", methods=["POST"])
-def assignMembers():
-    data = request.get_json()
-    for member in data["members"]:
-        members.append(Member(member["id"], member["name"], member["skills"], member["availability"]))
-        print("Added Member: ", member["name"], member["skills"], member["availability"])
-    return jsonify({"status":200})
+# @app.route("/members", methods=["POST"])
+# def assignMembers():
+#     data = request.get_json()
+#     for member in data["members"]:
+#         members.append(Member(member["id"], member["name"], member["skills"], member["availability"]))
+#         print("Added Member: ", member["name"], member["skills"], member["availability"])
+#     return jsonify({"status":200})
 
-@app.route("/tasks", methods=["POST"])
-def addTasks():
-    data = request.get_json()
-    for task in data["tasksList"]:
-        tasks.append(Task(task["id"], task["title"], task["required_skills"], task["priority"], task["effort"]))
-        print("Added Task: ", task["title"], task["required_skills"], task["priority"], task["effort"])
-    return jsonify({"status":200})
+# @app.route("/tasks", methods=["POST"])
+# def addTasks():
+#     data = request.get_json()
+#     for task in data["tasksList"]:
+#         tasks.append(Task(task["id"], task["title"], task["required_skills"], task["priority"], task["effort"]))
+#         print("Added Task: ", task["title"], task["required_skills"], task["priority"], task["effort"])
+#     return jsonify({"status":200})
 
 @app.route("/createTeam")
 def createTeam():
@@ -59,12 +54,7 @@ def createTasks():
 @app.route("/assignedTasks")
 def assignedTasks():
     return render_template("assignedTask.html")
-=======
-@app.route("/createTasls")
-def createTasks():
-    return render_template("createTasks.html")
 
->>>>>>> 3ee15c4 (UI Update V.2.1 - Completed Add New Member Page and Started Work on New Task Add Page, Few Changes on script.js ( added function that updates new member record table and adds new member to members list) and few changes on styles.css ( added new style rules for new member add page ))
 if __name__ == "__main__":
     app.run(debug=True)
     
