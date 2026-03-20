@@ -32,10 +32,14 @@ def assign():
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3977dec (Fixed assignment not fetching error)
     members = [Member(i["id"], i["name"], i["skills"], i["availability"]) for i in data.get("members", [])]
     tasks = [Task(t["id"], t["title"], t["required_skills"], t["priority"], t["effort"]) for t in data.get("tasksList", [])]
     # print("Received Members: ", members)
     # print("Received Tasks: ", tasks)
+<<<<<<< HEAD
 =======
     # members = [Member(m["id"], m["name"], m["skills"], m["availability"]) for m in data["members"]]
 
@@ -59,27 +63,29 @@ def assign():
     # print("Calling Smartflow Engine with Members: ", members)
     # print("Calling Smartflow Engine with Tasks: ", tasks)
 >>>>>>> b4f88de (Refactor assignment display logic in script.js to use assigned task details; comment out debug print statements in app.py)
+=======
+>>>>>>> 3977dec (Fixed assignment not fetching error)
     assignments = assignTasks(members, tasks)
     jsonedData = jsonify({"assignments": assignments})
     # print("Assignments from Smartflow Engine: ", jsonedData.get_json())
     return jsonedData
 
 
-@app.route("/members", methods=["POST"])
-def assignMembers():
-    data = request.get_json()
-    for member in data["members"]:
-        members.append(Member(member["id"], member["name"], member["skills"], member["availability"]))
-        print("Added Member: ", member["name"], member["skills"], member["availability"])
-    return jsonify({"status":200})
+# @app.route("/members", methods=["POST"])
+# def assignMembers():
+#     data = request.get_json()
+#     for member in data["members"]:
+#         members.append(Member(member["id"], member["name"], member["skills"], member["availability"]))
+#         print("Added Member: ", member["name"], member["skills"], member["availability"])
+#     return jsonify({"status":200})
 
-@app.route("/tasks", methods=["POST"])
-def addTasks():
-    data = request.get_json()
-    for task in data["tasksList"]:
-        tasks.append(Task(task["id"], task["title"], task["required_skills"], task["priority"], task["effort"]))
-        print("Added Task: ", task["title"], task["required_skills"], task["priority"], task["effort"])
-    return jsonify({"status":200})
+# @app.route("/tasks", methods=["POST"])
+# def addTasks():
+#     data = request.get_json()
+#     for task in data["tasksList"]:
+#         tasks.append(Task(task["id"], task["title"], task["required_skills"], task["priority"], task["effort"]))
+#         print("Added Task: ", task["title"], task["required_skills"], task["priority"], task["effort"])
+#     return jsonify({"status":200})
 
 @app.route("/createTeam")
 def createTeam():
@@ -96,6 +102,7 @@ def createTasks():
 @app.route("/assignedTasks")
 def assignedTasks():
     return render_template("assignedTask.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
 <<<<<<< HEAD

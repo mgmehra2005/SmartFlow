@@ -156,6 +156,7 @@ function assignTasks() {
         },
         body: JSON.stringify({
 <<<<<<< HEAD
+<<<<<<< HEAD
             members: localStorage.getItem("membersList") ? JSON.parse(localStorage.getItem("membersList")) : [],
             tasksList: localStorage.getItem("tasksList") ? JSON.parse(localStorage.getItem("tasksList")) : []
         })
@@ -163,6 +164,10 @@ function assignTasks() {
 <<<<<<< HEAD
 =======
             request: "assignedData",
+=======
+            members: localStorage.getItem("membersList") ? JSON.parse(localStorage.getItem("membersList")) : [],
+            tasksList: localStorage.getItem("tasksList") ? JSON.parse(localStorage.getItem("tasksList")) : []
+>>>>>>> 3977dec (Fixed assignment not fetching error)
         })
     })
 >>>>>>> 017e71a (Implement member and task management features with API integration and UI updates)
@@ -221,6 +226,9 @@ function assignTasks() {
 
 function pushMembers() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3977dec (Fixed assignment not fetching error)
     // fetch("/members", {
     //     method: "POST",
     //     headers: {
@@ -242,6 +250,7 @@ function pushMembers() {
 
     localStorage.setItem("membersList", JSON.stringify(membersList));
     window.location.href = "/createTasks";
+<<<<<<< HEAD
 }
 
 function pushTasks() {
@@ -298,28 +307,33 @@ function addMember() {
         }).catch(error => {
             console.error("Error pushing members:", error);
         });
+=======
+>>>>>>> 3977dec (Fixed assignment not fetching error)
 }
 
 function pushTasks() {
-    fetch("/tasks", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            tasksList: tasks
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status == 200) {
-                console.log("Tasks Assigned Successfully");
-                window.location.href = "/assignedTasks";
-                // assignTasks();
-            }
-        }).catch(error => {
-            console.error("Error pushing tasks:", error);
-        });
+    // fetch("/tasks", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         tasksList: tasks
+    //     })
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (data.status == 200) {
+    //             console.log("Tasks Assigned Successfully");
+    //             window.location.href = "/assignedTasks";
+    //             // assignTasks();
+    //         }
+    //     }).catch(error => {
+    //         console.error("Error pushing tasks:", error);
+    //     });
+
+    localStorage.setItem("tasksList", JSON.stringify(tasks));
+    window.location.href = "/assignedTasks";
 }
 
 function addMember() {
@@ -416,6 +430,7 @@ function setTeam() {
     } else {
         alert("Please enter a team name.");
     }
+<<<<<<< HEAD
 }
 =======
 }
@@ -424,3 +439,6 @@ function setTeam() {
 }
 
 >>>>>>> 54e9054 (Refactor assignment display logic and improve table styling in assignedTask.html and style.css; reset selectedSkills in script.js)
+=======
+}
+>>>>>>> 3977dec (Fixed assignment not fetching error)
